@@ -1,0 +1,32 @@
+<div class="min-h-screen flex items-center justify-center bg-dark">
+    <div class="bg-white shadow-md w-full max-w-4xl flex rounded-lg overflow-hidden">
+      
+      <div class="hidden md:block w-1/2">
+        <img src="./coplan-1.webp" class="w-full h-full object-cover">
+      </div>
+      
+      <div class="w-full md:w-1/2 p-8 bg-light-200">
+        <div class="mb-4">
+          <div class="flex justify-around">
+            <button
+              class="focus:outline-none text-lg"
+              [ngClass]="{'border-b-2 border-primary': currentTab === 'login'}"
+              (click)="selectTab('login')"
+            > Iniciar Sesión
+            </button>
+            <button
+              class="focus:outline-none text-lg"
+              [ngClass]="{'border-b-2 border-secondary': currentTab === 'register'}"
+              (click)="selectTab('register')"
+            > Registrarse
+            </button>
+          </div>
+        </div>
+        <div>
+          <login (tab)="selectTab($event)" *ngIf="currentTab === 'login'"></login>
+          <register *ngIf="currentTab === 'register'"></register>
+        </div>
+      </div>
+    </div>
+  </div>
+  
